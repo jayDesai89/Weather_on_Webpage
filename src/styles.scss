@@ -1,0 +1,289 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "variables";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+  @media screen and (max-width: 775px) {
+    max-width: 100%;
+  }
+
+  p,
+  strong,
+  a,
+  span,
+  input {
+    font-family: FontAvenirRegular;
+  }
+
+  h2,
+  h4,
+  h6 {
+    font-family: FontAvenirMedium;
+  }
+
+  h5 {
+    font-family: FontAvenirRegular;
+    color: $black;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+mat-sidenav-container {
+  background-image: url('./assets/images/toronto-skyline-lake-ontario-sunset-canada-1600x900.jpg');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.view-container {
+  backdrop-filter: blur(12px);
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+}
+
+
+// ######################################### Start Global Customization #########################################
+.width-100 {
+  width: 100%;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-left {
+  align-items: left;
+}
+
+.align-right {
+  align-items: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+ text-align: right;
+}
+
+// FLEX START //
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+flex-wrap {
+  flex-wrap: wrap;
+}
+
+flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.flex-justify-content-space-around {
+  justify-content: space-around;
+}
+
+.flex-justify-content-space-between {
+  justify-content: space-between;
+}
+
+.flex-justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+// FLEX END //
+
+.no-decoration {
+  text-decoration: none;
+}
+
+// ######################################### End Global Customization #########################################
+// ######################################### Start Global Margin & Padding Classes #########################################
+.margin-auto {
+  margin: auto;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+
+.mar-5-all  {margin: 5px;}
+.mar-10-all {margin: 10px;}
+.mar-15-all {margin: 15px;}
+.mar-20-all {margin: 20px;}
+.mar-25-all {margin: 25px;}
+.mar-30-all {margin: 30px;}
+
+.mar-5-top  {margin-top: 5px;}
+.mar-10-top {margin-top: 10px;}
+.mar-15-top {margin-top: 15px;}
+.mar-20-top {margin-top: 20px;}
+.mar-25-top {margin-top: 25px;}
+.mar-30-top {margin-top: 30px;}
+
+.mar-h-5  { margin: 5px 0px;}
+.mar-h-10 { margin: 10px 0px;}
+.mar-h-15 { margin: 15px 0px;}
+.mar-h-20 { margin: 20px 0px;}
+.mar-h-25 { margin: 25px 0px;}
+.mar-h-30 { margin: 30px 0px;}
+
+.mar-v-5  { margin: 0px 5px;}
+.mar-v-10 { margin: 0px 10px;}
+.mar-v-15 { margin: 0px 15px;}
+.mar-v-20 { margin: 0px 20px;}
+.mar-v-25 { margin: 0px 25px;}
+.mar-v-30 { margin: 0px 30px;}
+
+.mar-5-right  { margin-right: 5px;}
+.mar-10-right { margin-right: 10px;}
+.mar-15-right { margin-right: 15px;}
+.mar-20-right { margin-right: 20px;}
+.mar-25-right { margin-right: 25px;}
+.mar-30-right { margin-right: 30px;}
+
+.mar-5-bottom  { margin-bottom: 5px;}
+.mar-10-bottom { margin-bottom: 10px;}
+.mar-15-bottom { margin-bottom: 15px;}
+.mar-20-bottom { margin-bottom: 20px;}
+.mar-25-bottom { margin-bottom: 25px;}
+.mar-30-bottom { margin-bottom: 30px;}
+
+.mar-5-left  { margin-left: 5px;}
+.mar-10-left { margin-left: 10px;}
+.mar-15-left { margin-left: 15px;}
+.mar-20-left { margin-left: 20px;}
+.mar-25-left { margin-left: 25px;}
+.mar-30-left { margin-left: 30px;}
+
+// Margin Ends //
+
+// Padding Start //
+.pad-5-all { padding: 5px; border: 2px solid red;}
+.pad-10-all { padding: 10px;}
+.pad-15-all { padding: 15px;}
+.pad-20-all { padding: 20px;}
+.pad-25-all { padding: 25px;}
+.pad-30-all { padding: 30px;}
+
+.pad-h-5  { padding: 5px 0px;}
+.pad-h-10 { padding: 10px 0px;}
+.pad-h-15 { padding: 15px 0px;}
+.pad-h-20 { padding: 20px 0px;}
+.pad-h-25 { padding: 25px 0px;}
+.pad-h-30 { padding: 30px 0px;}
+
+.pad-v-5  { padding: 0px 5px;}
+.pad-v-10 { padding: 0px 10px;}
+.pad-v-15 { padding: 0px 15px;}
+.pad-v-20 { padding: 0px 20px;}
+.pad-v-25 { padding: 0px 25px;}
+.pad-v-30 { padding: 0px 30px;}
+
+.pad-5-top  { padding-top: 5px;}
+.pad-10-top { padding-top: 10px;}
+.pad-15-top { padding-top: 15px;}
+.pad-20-top { padding-top: 20px;}
+.pad-25-top { padding-top: 25px;}
+.pad-30-top { padding-top: 30px;}
+
+.pad-5-right  { padding-right: 5px;}
+.pad-10-right { padding-right: 10px;}
+.pad-15-right { padding-right: 15px;}
+.pad-20-right { padding-right: 20px;}
+.pad-25-right { padding-right: 25px;}
+.pad-30-right { padding-right: 30px;}
+
+.pad-5-bottom  { padding-bottom: 5px;}
+.pad-10-bottom { padding-bottom: 10px;}
+.pad-15-bottom { padding-bottom: 15px;}
+.pad-20-bottom { padding-bottom: 20px;}
+.pad-25-bottom { padding-bottom: 25px;}
+.pad-30-bottom { padding-bottom: 30px;}
+
+.pad-5-left  { padding-left: 5px;}
+.pad-10-left { padding-left: 10px;}
+.pad-15-left { padding-left: 15px;}
+.pad-20-left { padding-left: 20px;}
+.pad-25-left { padding-left: 25px;}
+.pad-30-left { padding-left: 30px;}
+
+
+// ######################################### End Global Customization #########################################
+
+@font-face {
+  font-family: FontAvenirRegular;
+  // /font/AvenirNext_Regular.ttf
+  src: url(font/AvenirNext_Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  color: $black;
+}
+
+@font-face {
+  font-family: FontAvenirMedium;
+  src: url(font/AvenirNext_Medium.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FontAvenirMediumItalic;
+  src: url(font/AvenirNext_MediumItalic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FontAvenirHeavy;
+  src: url(font/AvenirNext_Heavy.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FontAvenirLight;
+  src: url(font/AvenirNext_UltraLight.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FontAvenirUltraLight;
+  src: url(font/AvenirNext_UltraLightItalic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+

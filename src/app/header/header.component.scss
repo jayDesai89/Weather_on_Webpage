@@ -1,0 +1,36 @@
+.header-container {
+  .mat-button-toggle-appearance-standard {
+
+    .sup {
+      margin-top: 25px;
+      font-size: medium;
+      font-weight: 500;
+    }
+
+    P {
+      margin-left: 5px;
+      font-size: medium;
+      display: inline;
+    }
+  }
+
+  .mat-button-toggle-checked {
+    background-color: black;
+    color: white;
+    margin: auto;
+    width: 100px;
+
+    .sup {
+      margin-top: 25px;
+      font-size: large;
+      font-weight: 500;
+    }
+
+    P {
+      margin-left: 5px;
+      font-size: x-large;
+      display: inline;
+    }
+  }
+
+}

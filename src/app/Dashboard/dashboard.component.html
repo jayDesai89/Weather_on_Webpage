@@ -1,0 +1,82 @@
+
+<section class="pad-10-all">
+  <!-- Current Temp and Search article START -->
+  <article>
+    <section>
+      <div class="row">
+        <div class="col-4 col-lg-4 col-md-6 col-sm-12">
+          <h2 class="cityName">
+            {{cityWeather?.name}}, {{cityWeather?.sys?.country}}
+          </h2>
+          <div class="flex flex-justify-content-space-between" style="align-items: flex-start;">
+            <div class="leftBox">
+              <div class="flex">
+                <h3 style="font-size: 50px;">{{mainWeather | tempconverter:weatherUnit:mainWeather }}</h3>
+                <sup style="margin-top: 25px;font-size: larger;font-weight: 500;">o</sup>
+                <sup style="margin-top: 28px;margin-left: 5px; font-size: larger;font-weight: 500;">{{weatherUnit == 'fahrenheit' ? 'F':'C'}}</sup>
+              </div>
+              <p *ngFor="let info of cityWeather?.weather; i as index">
+                {{info?.description | capitalize}}
+              </p>
+            </div>
+            <div class="rightBox pad-10-all">
+              <p>
+                Max : <span>{{maxWeather | tempconverter:weatherUnit:maxWeather }}</span>
+                <sup style="margin-top: 25px;margin-left: 1px;font-size: regular;">o</sup>
+                <sup style="margin-top: 28px;margin-left: 5px; font-size: regular;">{{weatherUnit == 'fahrenheit' ? 'F':'C'}}</sup>
+              </p>
+              <p>
+                Min : <span>{{minWeather | tempconverter:weatherUnit:minWeather }}</span>
+                <sup style="margin-top: 25px;margin-left: 1px;font-size: regular;">o</sup>
+                <sup style="margin-top: 28px;margin-left: 5px; font-size: regular;">{{weatherUnit == 'fahrenheit' ? 'F':'C'}}</sup>
+              </p>
+              <p>
+                Humidity : <span>{{cityWeather?.main?.humidity}}</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-8 col-lg-8 col-md-6 col-sm-12">
+          <div class="text-right">
+            <form action="" [formGroup]="findCityForm" (ngSubmit)="getWeatherForSearchedCity(findCityForm.value)">
+            <mat-form-field class="example-full-width" style="width: 70%;">
+              <mat-label style="color: white;">Enter name of the city</mat-label>
+                <input matInput formControlName="nameOfCity">
+            </mat-form-field>
+            <mat-error *ngIf="failRequest">
+              {{errMessage}}
+            </mat-error>
+            <button mat-button type="submit" aria-label="submit">
+              Search
+            </button>
+          </form>
+          </div>
+          <div class="flex" style="justify-content: flex-end;">
+            <p class="pad-v-10">
+              North Caroline
+            </p>
+            <p class="pad-v-10">
+              Mississauga
+            </p>
+            <p class="pad-10-left">
+              Brampton
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <section class="mar-15-bottom">
+    <button class="pad-5-all" mat-button role="button" aria-label="5 days weather" style="background-color: black;color: white;">Next 5 days forecast</button>
+  </section>
+   <!-- Current Temp and Search article END -->
+   <mat-divider style="background-color: white;"></mat-divider>
+   <!-- Forecast of weather table START -->
+   <section class="pad-15-top">
+    <app-fivedayforecast></app-fivedayforecast>
+   </section>
+
+  <!-- Forecast of weather table END -->
+</section>

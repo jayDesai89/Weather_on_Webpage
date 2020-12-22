@@ -1,0 +1,32 @@
+<!-- logo and C/f button  START -->
+<!-- Left column with Logo start -->
+<section class="header-container">
+  <div class="row pad-10-all">
+    <div class="col-6 text-left">
+      <div>
+        <h1>Accurate Weather</h1>
+      </div>
+    </div>
+    <div class="col-6 text-right margin-auto">
+      <div>
+        <mat-button-toggle-group #tempConverterGroup="matButtonToggleGroup"
+        class="temp-unit-button-group"
+        name="tempUnitType"
+        value="fahrenheit"
+        aria-label="Temperature Unit Type"
+        (click)="switchUnit(tempConverterGroup.value)">
+          <mat-button-toggle value="celsius" role="button" aria-label="degree celsius">
+            <sup>o</sup>
+            <p>C</p>
+          </mat-button-toggle>
+          <mat-button-toggle value="fahrenheit" role="button" aria-label="degree fahrenheit">
+            <sup>o</sup>
+            <p>F</p>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Left column with Logo end -->
+<!-- logo and C/f button  START -->
