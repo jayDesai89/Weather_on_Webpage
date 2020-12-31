@@ -21,6 +21,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { CheckDatePipe } from './pipes/check-date.pipe';
 // Directives
 import { ResizableDirective } from './directive/resizable/resizable.directive';
+import { TempUnitUpdateDirective } from './directive/unitChange/temp-unit-update.directive';
+import { FivedaysforecastDirective } from './directive/fiveDaysForecast/fivedaysforecast.directive';
 // Material
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -30,7 +32,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { TempUnitUpdateDirective } from './directive/unitChange/temp-unit-update.directive';
+
+
 // 3rd Party
 
 @NgModule({
@@ -44,7 +47,8 @@ import { TempUnitUpdateDirective } from './directive/unitChange/temp-unit-update
     ResizableDirective,
     HeaderComponent,
     FivedayforecastComponent,
-    TempUnitUpdateDirective
+    TempUnitUpdateDirective,
+    FivedaysforecastDirective
   ],
   imports: [
     BrowserModule,

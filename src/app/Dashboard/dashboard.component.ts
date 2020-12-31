@@ -1,10 +1,11 @@
-import { Component, OnInit,} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output,} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { WeatherDataService } from '../services/weatherData/weather-data.service';
 import { NotFoundError } from '../models/notFoundError';
 import { ApplicationErrors } from '../models/app-errors';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TempUnitUpdateService } from '../services/temp-unit-update.service';
+import { WeatherDataByCity } from '../models/dataByCity';
 
 
 @Component({
@@ -16,15 +17,17 @@ export class DashboardComponent implements OnInit {
   city = 'Toronto';
   displayWeather = false;
   findCityForm: FormGroup;
-  cityWeather;
+  cityWeather : any;
   mainWeather: number = 273.13;
   minWeather: number = 273.13;
   maxWeather: number = 273.13;
-  forecastedWeather;
+  forecastedWeatherParent;
   showForecast: boolean;
   failRequest: boolean;
   errMessage: any;
   weatherUnit: any;
+  showForeCast: boolean = false;
+
 
    get cityName() {
      return this.findCityForm.get('nameOfCity');
@@ -64,10 +67,12 @@ export class DashboardComponent implements OnInit {
     // Method call form service
     this.weatherDataService.getWeatherData(value).subscribe((res) => {
       this.cityWeather = res;
+      let p = JSON.stringify(this.cityWeather);
+      console.log(this.cityWeather);
+      console.dir(this.cityWeather);
       this.mainWeather = this.cityWeather.main.temp;
       this.maxWeather  = this.cityWeather.main.temp_max;
       this.minWeather  = this.cityWeather.main.temp_min;
-      console.log(`Dashboard ${this.cityWeather}`);
     },
     (err) => {
       this.errMessage = err.originalError.error.message;
@@ -77,26 +82,27 @@ export class DashboardComponent implements OnInit {
 
   // On form submission get the name of searched city and get weather
   getWeatherForSearchedCity(value) {
-    console.log(value);
     this.city = value.nameOfCity;
-    console.log(this.city);
     this.getWeatherForCity(this.city);
   }
 
   // Get forecasted weather of city
-  getForecastedWeather(value) {
-    this.weatherDataService.getForecastOfWeather(this.city).subscribe((res: Response ) => {
-      this.forecastedWeather = res;
-      console.log(res);
-    },
-    (error: Response) => {
-      // Expected Errors
-      if (error.status === 404) {
-        alert ('No worries! This error is expected');
-      } else {
-        alert ('Oops! This is unexpected');
-      }
-    })
+  getForecastedWeather(showForeCast) {
+    if (showForeCast) {
+      this.weatherDataService.getForecastOfWeather(this.city).subscribe((res) => {
+        console.log(res);
+        // this.forecastedWeather = res;
+        this.forecastedWeatherParent = res;
+      },
+        (error: Response) => {
+          // Expected Errors
+          if (error.status === 404) {
+            alert('No worries! This error is expected');
+          } else {
+            alert('Oops! This is unexpected');
+          }
+        })
+    }
   }
 
   // Switch unit from fahrenheit to celsius and vise vers

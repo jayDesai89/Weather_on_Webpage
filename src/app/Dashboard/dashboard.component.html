@@ -5,7 +5,7 @@
     <section>
       <div class="row">
         <div class="col-4 col-lg-4 col-md-6 col-sm-12">
-          <h2 class="cityName">
+          <h2 class="cityName" style="font-size: larger;">
             {{cityWeather?.name}}, {{cityWeather?.sys?.country}}
           </h2>
           <div class="flex flex-justify-content-space-between" style="align-items: flex-start;">
@@ -42,7 +42,7 @@
             <form action="" [formGroup]="findCityForm" (ngSubmit)="getWeatherForSearchedCity(findCityForm.value)">
             <mat-form-field class="example-full-width" style="width: 70%;">
               <mat-label style="color: white;">Enter name of the city</mat-label>
-                <input matInput formControlName="nameOfCity">
+                <input matInput formControlName="nameOfCity" aria-label="name of the city" type="search">
             </mat-form-field>
             <mat-error *ngIf="failRequest">
               {{errMessage}}
@@ -54,7 +54,7 @@
           </div>
           <div class="flex" style="justify-content: flex-end;">
             <p class="pad-v-10">
-              North Caroline
+              North Carolina
             </p>
             <p class="pad-v-10">
               Mississauga
@@ -69,13 +69,15 @@
   </article>
 
   <section class="mar-15-bottom">
-    <button class="pad-5-all" mat-button role="button" aria-label="5 days weather" style="background-color: black;color: white;">Next 5 days forecast</button>
+    <button class="pad-5-all" mat-button role="button" aria-label="5 days weather"
+    style="background-color: black;color: white;" [disabled]="!findCityForm.valid"
+    (click)="showForeCast = !showForeCast;getForecastedWeather(showForeCast)">Next 5 days forecast</button>
   </section>
    <!-- Current Temp and Search article END -->
    <mat-divider style="background-color: white;"></mat-divider>
    <!-- Forecast of weather table START -->
-   <section class="pad-15-top">
-    <app-fivedayforecast></app-fivedayforecast>
+   <section class="pad-15-top" *ngIf="showForeCast">
+    <app-fivedayforecast [foreCastedWeatherChild]='forecastedWeatherParent'></app-fivedayforecast>
    </section>
 
   <!-- Forecast of weather table END -->

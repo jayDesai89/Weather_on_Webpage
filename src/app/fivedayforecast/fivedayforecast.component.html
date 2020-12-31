@@ -1,3 +1,15 @@
+<section *ngIf="foreCastedWeatherChild !== undefined">
+  <!-- <p appFivedaysforecast>
+    {{foreCastedWeatherChild | json}}
+  </p> -->
+</section>
+<section *ngIf="some !== undefined">
+  <div *ngFor="let day of some?.list">
+    <p>
+      {{day?.dt_txt}}
+    </p>
+  </div>
+</section>
 <section>
   <div class="flex text-center" style="align-items: center;justify-content: space-around;">
     <div class="pad-10-all" *ngFor="let currentDay of fiveDaysForcastArray" style="display:flex; flex-direction: column;justify-content: space-around;">
