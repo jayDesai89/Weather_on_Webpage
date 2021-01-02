@@ -1,57 +1,48 @@
-<section *ngIf="foreCastedWeatherChild !== undefined">
-  <!-- <p appFivedaysforecast>
-    {{foreCastedWeatherChild | json}}
-  </p> -->
-</section>
-<section *ngIf="some !== undefined">
-  <div *ngFor="let day of some?.list">
-    <p>
-      {{day?.dt_txt}}
-    </p>
-  </div>
-</section>
 <section>
   <div class="flex text-center" style="align-items: center;justify-content: space-around;">
-    <div class="pad-10-all" *ngFor="let currentDay of fiveDaysForcastArray" style="display:flex; flex-direction: column;justify-content: space-around;">
+    <div class="pad-10-all" *ngFor="let currentDay of arrayofWeatherForecasted" style="display:flex; flex-direction: column;justify-content: space-around;">
       <div>
         <p class="mar-h-10" style="font-size:x-large;">
-          {{currentDay.day}}
+          {{currentDay?.day}}
         </p>
         <p class="mar-h-10">
-          {{currentDay.date}}
+          {{currentDay?.forecastedDate}}
         </p>
         <p class="mar-h-10" style="white-space:normal;">
-          {{currentDay.detail1}}
+          {{currentDay?.dayWeatherDescription}}
         </p>
         <div style="display: inline-block;" >
           <p class="pad-15-all"  style="border: 1px solid black; ;height: 50px;width: 50px;border-radius: 50%">
           </p>
         </div>
         <div class="flex mar-h-10 text-center" style="justify-content: center">
-          <p style="font-size: 35px;">{{currentDay.detail2}}</p>
+          <p class="mar-h-10" style="white-space:normal;">
+            Max
+          </p>
+          <p style="font-size: 35px;">{{currentDay?.dayMaxTemp | tempconverter:weatherUnitChild:currentDay?.dayMaxTemp}}</p>
           <sup style="margin-top: 25px;font-size: large;font-weight: 500;">o</sup>
-          <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">C</sup>
+          <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">{{weatherUnitChild == 'fahrenheit' ? 'F':'C'}}</sup>
         </div>
         <div class="flex mar-h-10 text-center" style="justify-content: center">
-          <p style="font-size: 30px;">{{currentDay.detail3}}</p>
+          <p style="font-size: 30px;">{{currentDay?.dayMinTemp | tempconverter:weatherUnitChild:currentDay?.dayMinTemp}}</p>
           <sup style="margin-top: 25px;font-size: large;font-weight: 500;">o</sup>
-          <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">C</sup>
+          <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">{{weatherUnitChild == 'fahrenheit' ? 'F':'C'}}</sup>
         </div>
         <div class="flex mar-h-10 text-center" style="justify-content: center">
-          <p style="font-size: 30px;">{{currentDay.detail4}}</p>
+          <p style="font-size: 30px;">{{currentDay?.dayAvgFeelsLike | tempconverter:weatherUnitChild:currentDay?.dayAvgFeelsLike}}</p>
+          <sup style="margin-top: 25px;font-size: large;font-weight: 500;">o</sup>
+          <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">{{weatherUnitChild == 'fahrenheit' ? 'F':'C'}}</sup>
+        </div>
+
+        <p class="mar-h-10" style="font-size: 30px;margin-bottom: 22px;">{{currentDay?.detail5}}</p>
+
+        <div class="flex mar-h-10 text-center" style="justify-content: center">
+          <p style="font-size: 30px;">{{currentDay?.detail6}}</p>
           <sup style="margin-top: 25px;font-size: large;font-weight: 500;">o</sup>
           <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">C</sup>
         </div>
 
-        <p class="mar-h-10" style="font-size: 30px;margin-bottom: 22px;">{{currentDay.detail5}}</p>
-
-        <div class="flex mar-h-10 text-center" style="justify-content: center">
-          <p style="font-size: 30px;">{{currentDay.detail6}}</p>
-          <sup style="margin-top: 25px;font-size: large;font-weight: 500;">o</sup>
-          <sup style="margin-top: 28px;margin-left: 5px; font-size: large;font-weight: 500;">C</sup>
-        </div>
-
-        <p class="mar-h-10" style="font-size: 30px;">{{currentDay.detail7}}</p>
+        <p class="mar-h-10" style="font-size: 30px;">{{currentDay?.detail7}}</p>
       </div>
 
     </div>
