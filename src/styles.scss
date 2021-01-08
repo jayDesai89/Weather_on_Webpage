@@ -64,6 +64,34 @@ mat-sidenav-container {
 }
 
 
+// ######################################### Typography #########################################
+.txtSize35{
+  font-size: 35px;
+}
+.txtSize30{
+  font-size: 30px;
+}
+.txtSize25{
+  font-size: 25px;
+}
+.txtSize20{
+  font-size: 20px;
+}
+.txtSize16{
+  font-size: 16px;
+}
+.txtSize14{
+  font-size: 14px;
+}
+.txtSize12{
+  font-size: 12px;
+}
+
+.txtWeightNormal {
+  font-weight: normal;
+}
+
+
 // ######################################### Start Global Customization #########################################
 .width-100 {
   width: 100%;
@@ -87,6 +115,10 @@ mat-sidenav-container {
 
 .text-right {
  text-align: right;
+}
+
+.white-space-normal{
+  white-space:normal
 }
 
 // FLEX START //
@@ -121,6 +153,20 @@ flex-no-wrap {
 .flex-justify-content-space-evenly {
   justify-content: space-evenly;
 }
+
+.flex-justify-content-flex-end {
+  justify-content: flex-end;
+}
+
+.flex-justify-content-center {
+  justify-content:center;
+}
+
+.flex-align-start {
+  align-items: flex-start;
+}
+
+
 
 // FLEX END //
 
@@ -174,6 +220,7 @@ flex-no-wrap {
 .mar-25-right { margin-right: 25px;}
 .mar-30-right { margin-right: 30px;}
 
+.mar-0-bottom { margin-bottom: 0px;}
 .mar-5-bottom  { margin-bottom: 5px;}
 .mar-10-bottom { margin-bottom: 10px;}
 .mar-15-bottom { margin-bottom: 15px;}
@@ -241,7 +288,22 @@ flex-no-wrap {
 .pad-30-left { padding-left: 30px;}
 
 
+// ######################################### Media query #########################################
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px)  {  };
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width:481px)  {  };
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px)  {  };
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:961px)  {  }
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {  }
+/* hi-res laptops and desktops */
+@media (min-width:1281px) {  }
+
 // ######################################### End Global Customization #########################################
+
 
 @font-face {
   font-family: FontAvenirRegular;

@@ -1,58 +1,41 @@
 // @import '../app.component.scss';
+@import '../../variables.scss';
+
+
 .dashboard {
+  .enter-city-name {
+    mat-label {
+      color: $white;
+    }
+  }
 
-  // font-family: FontAvenirHeavy;
-  // height: 100%;
-  // background-color: transparent;
+  .city-search-btn {
+    width: 20%;
+    height: max-content;
+    margin-bottom: 0px;
+    margin: 10px;
+    background-color: #304D5C;
+    box-shadow: 7px 7px 14px #20333d,
+      -5px -5px 14px #40677b;
+  }
 
-  // mat-card {
-  //   opacity: 96%;
-  // }
+  .forecast-Btn {
+    color: $white;
+    height: max-content;
+    margin: 10px;
+    background-color: #795C4E;
+    box-shadow: 4px 4px 12px #30251f,
+      -4px -4px 12px #c2937d
+  }
 
-  // header > .city-name{
+  .spacer {
+    background-color: white;
+  }
 
-  //   text-align: left;
-  //   // margin: 3% 3%;
-  // }
-
-  // header>h1 {
-  //   padding: 5%;
-  //   width: 100%;
-  //   background-color: transparent;
-  // }
-
-  // .search-section {
-  //   margin-bottom: 3%;
-
-  //   form {
-  //     background-color: transparent;
-  //     text-align: center;
-  //     margin-bottom: 0px;
-
-  //     mat-form-field {
-  //       width: 40%;
-  //       padding: 1rem;
-  //     }
-  //   }
-  // }
-
-  // .display-section {
-
-  //   .side-border {
-  //     border-right: 2px solid black;
-  //   }
-
-  //   .weather-in-degree {
-  //     font-size: 2rem;
-  //     font-weight: bold;
-  //     margin-bottom: 0px;
-  //   }
-
-  //   .logoF,
-  //   .logoC {
-  //     margin-left: -4px;
-  //   }
-  // }
-
+  .current-weather-icon {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+  }
 
 }

@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
 
     // update view if formfield's value updates
     this.findCityForm.get("nameOfCity").valueChanges.subscribe((val) => {
-      console.log(val);
+      // console.log(val);
       this.showForecast = false;
     });
 
@@ -68,22 +68,29 @@ export class DashboardComponent implements OnInit {
       (res) => {
         this.cityWeather = res;
         console.log(this.cityWeather);
-        console.dir(this.cityWeather);
         this.mainWeather = this.cityWeather.main.temp;
         this.maxWeather = this.cityWeather.main.temp_max;
         this.minWeather = this.cityWeather.main.temp_min;
         this.feelsLike = this.cityWeather.main.feels_like;
+
+        // const obj = this.cityWeather;
+        // console.log(new Date(obj.dt*1000-(obj.timezone*1000))); // minus
+        // console.log(new Date(obj.dt*1000+(obj.timezone*1000))); // plus
       },
       (err) => {
         this.errMessage = err.originalError.error.message;
         this.failRequest = true;
       }
     );
+
+    this.showForeCast = false;
+    console.log(this.showForeCast);
   }
 
   selectInput(event) {
-    console.log('123', event);
+    // console.log('123', event);
   }
+
 
   // On form submission get the name of searched city and get weather
   getWeatherForSearchedCity(value) {
@@ -92,11 +99,10 @@ export class DashboardComponent implements OnInit {
   }
 
   // Get forecasted weather of city
-  getForecastedWeather(showForeCast) {
+  getForecastedWeather(val) {
         this.weatherDataService.getForecastOfWeather(this.city).subscribe(
           (res) => {
             console.log(res);
-            // this.forecastedWeather = res;
             this.forecastedWeatherParent = res;
           },
           (error: Response) => {

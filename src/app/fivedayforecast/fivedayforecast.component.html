@@ -1,13 +1,12 @@
 <ngx-spinner></ngx-spinner>
-<section style="font-weight: normal;">
+<section class="txtWeightNormal forecast-weather">
 
-  <div class="flex text-center" style="align-items: center;justify-content: space-around;">
+  <div class="flex text-center flex-justify-content-space-around">
 
-    <div class="pad-10-all" *ngFor="let currentDay of arrayofWeatherForecasted"
-      style="display:flex; flex-direction: column;justify-content: space-around;">
+    <div class="pad-10-all flex flex-column flex-justify-content-space-around" *ngFor="let currentDay of arrayofWeatherForecasted;let i = index">
       <div>
         <!-- Day : Sunday, Monday, etc...-->
-        <p aria-label="name of the day" class="mar-h-10" style="font-size: 20px;" role="title">
+        <p aria-label="name of the day" class="mar-h-10 txtSize20" role="title">
           {{currentDay?.day}}
         </p>
         <!-- Date-->
@@ -15,24 +14,24 @@
           {{currentDay?.forecastedDate}}
         </p>
         <!-- Weather Description -->
-        <p aria-label="description of the weather" class="mar-h-10" style="white-space:normal;">
+        <p aria-label="description of the weather white-space-normal" class="mar-h-10">
           {{currentDay?.dayWeatherDescription}}
         </p>
         <!-- Weather Icon -->
-        <div style="display: inline-block;">
-          <p class="pad-15-all" style="border: 1px solid black; ;height: 50px;width: 50px;border-radius: 50%">
-          </p>
+        <div>
+          <img class="pad-15 weather-icon"  src="http://openweathermap.org/img/w/{{currentDay?.dayWeatherDescriptionIcon}}.png"
+          style="" alt="Weather icon {{i}}">
         </div>
 
         <!-- Max Temp block - Start -->
         <div>
           <!-- Heading Max-->
-          <p aria-label="Maximum Temperature title" class="no-margin" style="font-size: 16px;">
+          <p aria-label="Maximum Temperature title" class="no-margin txtSize16">
             Max
           </p>
           <!-- Max Temp-->
-          <div class="flex mar-b-10 text-center" style="justify-content: center">
-            <p  aria-label="Maximum Temperature in degree" style="font-size: 20px;">
+          <div class="flex mar-b-10 text-center flex-justify-content-center">
+            <p class="txtSize20" aria-label="Maximum Temperature in degree">
               {{currentDay?.dayMaxTemp | tempconverter:weatherUnitChild:currentDay?.dayMaxTemp}}
               <sup>{{weatherUnitChild == 'fahrenheit' ? '°F':'°C'}}</sup>
             </p>
@@ -43,12 +42,12 @@
         <!-- Min Temp block - Start -->
         <div>
           <!-- Heading Max-->
-          <p aria-label="Minimum Temperature title" class="no-margin" style="white-space:normal;display: block;font-size: 16px;">
+          <p aria-label="Minimum Temperature title" class="no-margin white-space-normal txtSize16 block">
             Min
           </p>
           <!-- Max Temp-->
-          <div class="flex mar-b-10 text-center" style="justify-content: center">
-            <p aria-label="Minimum Temperature in degree" style="font-size: 20px;">
+          <div class="flex mar-b-10 text-center flex-justify-content-center">
+            <p aria-label="Minimum Temperature in degree" class="txtSize20">
               {{currentDay?.dayMinTemp | tempconverter:weatherUnitChild:currentDay?.dayMinTemp}}
               <sup>{{weatherUnitChild == 'fahrenheit' ? '°F':'°C'}}</sup>
             </p>
@@ -59,12 +58,12 @@
         <!-- Avg Feels like Temp block - Start -->
         <div>
           <!-- Heading Max-->
-          <p aria-label="average feels like temperature title" class="no-margin" style="white-space:normal;display: block;font-size: 16px;">
+          <p aria-label="average feels like temperature title" class="no-margin white-space-normal txtSize16 block">
             Feels like
           </p>
-          <!-- Max Temp-->
-          <div class="flex mar-b-10 text-center" style="justify-content: center">
-            <p aria-label="average feels like temperature in degree" style="font-size: 20px;">
+          <!-- Ave day feels like -->
+          <div class="flex mar-b-10 text-center flex-justify-content-center">
+            <p class="txtSize20" aria-label="average feels like temperature in degree">
               {{currentDay?.dayAvgFeelsLike | tempconverter:weatherUnitChild:currentDay?.dayAvgFeelsLike}}
               <sup>{{weatherUnitChild == 'fahrenheit' ? '°F':'°C'}}</sup>
             </p>

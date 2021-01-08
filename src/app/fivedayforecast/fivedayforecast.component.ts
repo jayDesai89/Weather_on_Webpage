@@ -63,9 +63,11 @@ export class FivedayforecastComponent implements OnInit {
         dayAvgFeelsLike: this.getMin(groupedData[date], "feels_like"),
         dayWeatherMain: groupedData[date][0].weather[0].main,
         dayWeatherDescription: groupedData[date][0].weather[0].description,
+        dayWeatherDescriptionIcon: groupedData[date][0].weather[0].icon
       });
     }
 
+    this.arrayofWeatherForecasted.shift();
     console.log(this.arrayofWeatherForecasted);
   }
 
