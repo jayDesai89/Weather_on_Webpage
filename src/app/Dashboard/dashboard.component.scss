@@ -9,6 +9,12 @@
     }
   }
 
+  .mat-error-text {
+    margin-top: -10px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+  }
+
   .city-search-btn {
     width: 20%;
     height: max-content;
@@ -25,7 +31,12 @@
     margin: 10px;
     background-color: #795C4E;
     box-shadow: 4px 4px 12px #30251f,
-      -4px -4px 12px #c2937d
+      -4px -4px 12px #c2937d;
+    opacity: 100%
+  }
+
+  .forecast-Btn:disabled {
+    opacity: 0.3;
   }
 
   .spacer {

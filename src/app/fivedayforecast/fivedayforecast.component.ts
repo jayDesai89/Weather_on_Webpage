@@ -23,7 +23,7 @@ export class FivedayforecastComponent implements OnInit {
     setTimeout(() => {
       this.dayAvgWeather(this.foreCastedWeatherChild);
       this.spinner.hide();
-    },5000)
+    },3000)
 
     // if (this.foreCastedWeatherChild !== undefined) {
 
@@ -63,7 +63,7 @@ export class FivedayforecastComponent implements OnInit {
         dayAvgFeelsLike: this.getMin(groupedData[date], "feels_like"),
         dayWeatherMain: groupedData[date][0].weather[0].main,
         dayWeatherDescription: groupedData[date][0].weather[0].description,
-        dayWeatherDescriptionIcon: groupedData[date][0].weather[0].icon
+        dayWeatherDescriptionIcon: groupedData[date].length > 4 ? groupedData[date][3].weather[0].icon : groupedData[date][0].weather[0].icon
       });
     }
 

@@ -54,21 +54,25 @@
 
         </div>
         <div class="col-lg-7 col-md-6  col-sm-12 col-xs-12 txtWeightNormal">
-          <div class="text-right">
+          <div>
             <form action="" [formGroup]="findCityForm" (ngSubmit)="getWeatherForSearchedCity(findCityForm.value)">
               <div class="flex">
+
                 <mat-form-field class="w-100 enter-city-name" (change)="selectInput($event)">
                   <mat-label>Enter name of the city</mat-label>
                   <input matInput formControlName="nameOfCity" aria-label="name of the city" type="search"
                     aria-required="true">
                 </mat-form-field>
-                <mat-error *ngIf="failRequest">
-                  {{errMessage}}
-                </mat-error>
+
                 <button mat-button type="submit" aria-label="submit" class="city-search-btn">
                   Search
                 </button>
               </div>
+              <p *ngIf="failRequest" class="text-left">
+                <mat-error class="mat-error-text txtBold">
+                  {{errMessage | capitalize}}
+                </mat-error>
+              </p>
             </form>
           </div>
           <div class="flex flex-justify-content-flex-end">
