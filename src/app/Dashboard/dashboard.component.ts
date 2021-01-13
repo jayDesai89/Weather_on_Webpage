@@ -52,7 +52,6 @@ export class DashboardComponent implements OnInit {
     this.findCityForm.get("nameOfCity").valueChanges.subscribe((val) => {
       // console.log(val);
       this.showForecast = false;
-      console.log(this.findCityForm);
     });
 
     this.tempUnitUpdateService.getTempUnitValue.subscribe((unitVal) => {
