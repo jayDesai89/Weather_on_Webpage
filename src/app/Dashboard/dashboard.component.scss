@@ -49,4 +49,22 @@
     border-radius: 50%;
   }
 
+
+  @media (max-width:481px) {
+    .cityName {
+      font-size: 27px;
+    }
+    .city-search-btn {
+      width: 30%;
+      box-shadow: none;
+      color: white;
+    }
+  }
+
+  @media (max-width:961px)  {
+    .city-search-btn {
+      width: 30%;
+    }
+  }
+
 }

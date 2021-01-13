@@ -45,13 +45,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // Create a form
     this.findCityForm = this.formBuilder.group({
-      nameOfCity: new FormControl("", Validators.required),
+      nameOfCity: new FormControl("", [Validators.required, Validators.minLength(2)]),
     });
 
     // update view if formfield's value updates
     this.findCityForm.get("nameOfCity").valueChanges.subscribe((val) => {
       // console.log(val);
       this.showForecast = false;
+      console.log(this.findCityForm);
     });
 
     this.tempUnitUpdateService.getTempUnitValue.subscribe((unitVal) => {

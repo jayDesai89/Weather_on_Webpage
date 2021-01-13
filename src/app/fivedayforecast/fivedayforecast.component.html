@@ -1,9 +1,10 @@
 <ngx-spinner></ngx-spinner>
 <section class="txtWeightNormal forecast-weather">
 
-  <div class="flex text-center flex-justify-content-space-around">
+  <div class="flex text-center flex-justify-content-space-around flex-wrap">
 
-    <div class="pad-10-all flex flex-column flex-justify-content-space-around" *ngFor="let currentDay of arrayofWeatherForecasted;let i = index">
+    <div class="forecast-weather-column pad-10-all flex flex-column flex-justify-content-space-around "
+    *ngFor="let currentDay of arrayofWeatherForecasted;let i = index">
       <div>
         <!-- Day : Sunday, Monday, etc...-->
         <p aria-label="name of the day" class="mar-h-10 txtSize20" role="title">
@@ -71,7 +72,6 @@
         </div>
         <!-- Avg Feels like Temp block - End -->
       </div>
-
     </div>
   </div>
 </section>

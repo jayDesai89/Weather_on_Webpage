@@ -22,7 +22,7 @@
                 <sup>{{weatherUnit == 'fahrenheit' ? '°F':'°C'}}</sup>
               </p>
               <!-- Weather description -->
-              <p aria-label="Weather description" *ngFor="let info of cityWeather?.weather; i as index">
+              <p class="txtSize20" aria-label="Weather description" *ngFor="let info of cityWeather?.weather; i as index">
                 {{info?.description | capitalize}}
 
               <img class="current-weather-icon" id="wicon" src="http://openweathermap.org/img/w/{{info?.icon}}.png" alt="Weather icon">
@@ -54,20 +54,23 @@
 
         </div>
         <div class="col-lg-7 col-md-6  col-sm-12 col-xs-12 txtWeightNormal">
+          <!-- Search city by name form -->
           <div>
             <form action="" [formGroup]="findCityForm" (ngSubmit)="getWeatherForSearchedCity(findCityForm.value)">
-              <div class="flex">
-
+              <div class="flex flex-row flex-justify-content-space-between">
+                <!-- Enter name of the city here -->
                 <mat-form-field class="w-100 enter-city-name" (change)="selectInput($event)">
                   <mat-label>Enter name of the city</mat-label>
                   <input matInput formControlName="nameOfCity" aria-label="name of the city" type="search"
                     aria-required="true">
                 </mat-form-field>
 
-                <button mat-button type="submit" aria-label="submit" class="city-search-btn">
+                <!-- Search button -->
+                <button mat-raised-button type="submit" aria-label="submit" class="city-search-btn">
                   Search
                 </button>
               </div>
+              <!-- form field error -->
               <p *ngIf="failRequest" class="text-left">
                 <mat-error class="mat-error-text txtBold">
                   {{errMessage | capitalize}}
@@ -75,6 +78,7 @@
               </p>
             </form>
           </div>
+          <!-- pre-selected city -->
           <div class="flex flex-justify-content-flex-end">
             <p class="pad-v-10">
               North Carolina
@@ -91,8 +95,8 @@
        <!-- Five Days forecast section -->
        <section class="mar-15-bottom">
         <button class="pad-5-all mar-0-bottom forecast-Btn" mat-button role="button"
-          aria-label="5 days weather forecast" [disabled]="!findCityForm.valid"
-          (click)="showForeCast = !showForeCast;getForecastedWeather(showForeCast)">Next 5 days forecast</button>
+          aria-label="5 days weather forecast" [disabled]="!findCityForm.valid || failRequest"
+          (click)="showForeCast = !showForeCast;getForecastedWeather(showForeCast)">Next 5 days forecast {{failRequest}}</button>
       </section>
     </section>
   </article>
