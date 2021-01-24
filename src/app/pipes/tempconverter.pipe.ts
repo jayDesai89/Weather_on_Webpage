@@ -10,7 +10,7 @@ export class TempconverterPipe implements PipeTransform {
    * Change the Unit type of temperature in header
    * Transform the value based on unit value fahrenheit or celsius
    */
-  transform(value:any,tempUnit?: any): any {
+  transform(value:any,tempUnit?: any, data?: any): any {
     if (tempUnit === 'fahrenheit') {
       value = ((value-273.15)*(9/5))+32
     } else if (tempUnit === 'celsius'){

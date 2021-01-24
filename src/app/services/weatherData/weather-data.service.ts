@@ -26,7 +26,7 @@ export class WeatherDataService {
 
   // Pass city name in query get its weather data
   getWeatherData(q: any): Observable<WeatherDataByCity> {
-    this.apiRes = this._http.get(`http://api.openweathermap.org/data/2.5/weather?q=${q}&APPID=5d2a116653d0785ed8c6889aa535b3f2`)
+    this.apiRes = this._http.get(`https://api.openweathermap.org/data/2.5/weather?q=${q}&APPID=5d2a116653d0785ed8c6889aa535b3f2`)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -46,7 +46,7 @@ export class WeatherDataService {
   getForecastOfWeather(q: any): Observable<ForecastedWeather> {
     this.apiRes = this
     ._http
-    .get(`http://api.openweathermap.org/data/2.5/forecast?q=${q}&APPID=5d2a116653d0785ed8c6889aa535b3f2`);
+    .get(`https://api.openweathermap.org/data/2.5/forecast?q=${q}&APPID=5d2a116653d0785ed8c6889aa535b3f2`);
     return this.apiRes as Observable<ForecastedWeather>;
   }
 
