@@ -3,7 +3,42 @@
   <article>
     <section>
       <div class="row">
-        <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 txtSize20 txtWeightNormal">
+
+
+        <div *ngIf="showMobile" class="col-sm-12 txtWeightNormal">
+          <!-- Search city by name form -->
+          <div>
+            <form action="" [formGroup]="findCityForm" (ngSubmit)="getWeatherForSearchedCity(findCityForm.value)">
+              <div class="flex flex-row flex-justify-content-space-between form-div">
+                <!-- Enter name of the city here -->
+                <div class="form-field-div">
+                  <mat-form-field class="enter-city-name">
+                    <mat-label>Enter name of the city mobile</mat-label>
+                    <input matInput formControlName="nameOfCity" aria-label="name of the city" type="search"
+                      aria-required="true">
+                  </mat-form-field>
+                </div>
+
+                <div>
+                   <!-- Search button -->
+                <button mat-raised-button type="submit" aria-label="submit" class="city-search-btn">
+                  Search
+                </button>
+                </div>
+
+              </div>
+              <!-- form field error -->
+              <p *ngIf="failRequest" class="text-left">
+                <mat-error class="mat-error-text txtBold">
+                  {{errMessage | capitalize}}
+                </mat-error>
+              </p>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 col-md-6 col-sm-12 txtSize20 txtWeightNormal">
           <!-- Name of the City -->
           <h2 class="cityName txtSize30" aria-label="Main Temperature in degree">
             {{cityWeather?.name}}, {{cityWeather?.sys?.country}}
@@ -53,20 +88,22 @@
           </div>
 
         </div>
-        <div class="col-lg-7 col-md-6  col-sm-12 col-xs-12 txtWeightNormal">
+
+        <div *ngIf="!showMobile" class="col-lg-7 col-md-6 col-sm-12 txtWeightNormal web-search">
           <!-- Search city by name form -->
           <div>
             <form action="" [formGroup]="findCityForm" (ngSubmit)="getWeatherForSearchedCity(findCityForm.value)">
               <div class="flex flex-row flex-justify-content-space-between">
                 <!-- Enter name of the city here -->
-                <mat-form-field class="w-100 enter-city-name" (change)="selectInput($event)">
-                  <mat-label>Enter name of the city</mat-label>
+                <mat-form-field class="w-100 enter-city-name">
+                  <mat-label>Enter name of the city web</mat-label>
                   <input matInput formControlName="nameOfCity" aria-label="name of the city" type="search"
                     aria-required="true">
                 </mat-form-field>
 
+
                 <!-- Search button -->
-                <button mat-raised-button type="submit" aria-label="submit" class="city-search-btn">
+                <button mat-raised-button type="submit" aria-label="submit" [disabled]="!findCityForm.valid" class="city-search-btn">
                   Search
                 </button>
               </div>
@@ -79,7 +116,7 @@
             </form>
           </div>
           <!-- pre-selected city -->
-          <div class="flex flex-justify-content-flex-end">
+          <!-- <div class="flex flex-justify-content-flex-end">
             <p class="pad-v-10">
               North Carolina
             </p>
@@ -89,8 +126,10 @@
             <p class="pad-10-left">
               Brampton
             </p>
-          </div>
+          </div> -->
         </div>
+
+
       </div>
        <!-- Five Days forecast section -->
        <section class="mar-15-bottom">

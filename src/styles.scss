@@ -3,7 +3,16 @@
 @import "variables";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url('./assets/images/toronto-skyline-lake-ontario-sunset-canada-1600x900.jpg');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;}
 
 .container {
   @media screen and (max-width: 775px) {
@@ -40,19 +49,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .text-right {
   text-align: right;
-}
-
-
-mat-sidenav-container {
-  background-image: url('./assets/images/toronto-skyline-lake-ontario-sunset-canada-1600x900.jpg');
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .view-container {

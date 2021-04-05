@@ -33,6 +33,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+// import { StoreModule } from '@ngrx/store';
+// import { TodoReducer } from './reducers/todo.reducer';
 
 
 // 3rd Party
@@ -67,7 +70,9 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    SlickCarouselModule,
+    // StoreModule.forRoot({todos: TodoReducer})
   ],
   providers: [WeatherDataService],
   bootstrap: [AppComponent],

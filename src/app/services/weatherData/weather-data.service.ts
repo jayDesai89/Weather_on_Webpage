@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { retry, catchError, map, switchMap } from 'rxjs/operators';
 import { WeatherDataByCity } from 'src/app/models/dataByCity';
 import { ForecastedWeather } from 'src/app/models/forcastedData';
 import { ApplicationErrors } from 'src/app/models/app-errors';
@@ -57,3 +57,6 @@ export class WeatherDataService {
     return (this.status === WeatherDataService.STATUS_SUCCESS);
   }
 }
+
+
+

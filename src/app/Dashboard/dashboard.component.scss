@@ -3,7 +3,15 @@
 
 
 .dashboard {
+
+  .form-div {
+    align-items: center;
+    .form-field-div {
+      width: 80%;
+    }
+  }
   .enter-city-name {
+    width: 100%;
     mat-label {
       color: $white;
     }
@@ -16,14 +24,14 @@
   }
 
   .city-search-btn {
-    width: 20%;
+    width: min-content;
     color: white;
     height: max-content;
+    width: auto;
     margin-bottom: 0px;
-    margin: 10px;
-    background-color: #304D5C;
-    box-shadow: 7px 7px 14px #20333d,
-      -5px -5px 14px #40677b;
+    // margin: 10px;
+    background-color: #795C4E;
+    box-shadow: 5px 5px 12px #30251f, -3px -3px 11px #c2937d
   }
 
   .forecast-Btn {
@@ -51,20 +59,29 @@
   }
 
 
+
+
   @media (max-width:481px) {
+
+
     .cityName {
       font-size: 27px;
     }
+
     .city-search-btn {
-      width: 30%;
+      width: min-content;
       box-shadow: none;
       color: white;
     }
   }
 
-  @media (max-width:961px)  {
-    .city-search-btn {
-      width: 30%;
+  @media screen and (max-width:961px) {
+
+    .form-div {
+      align-items: center;
+      .form-field-div {
+        width: 65%;
+      }
     }
   }
 

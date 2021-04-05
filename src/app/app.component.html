@@ -1,21 +1,28 @@
-<mat-sidenav-container>
-  <!--SIDE BAR-->
-  <mat-sidenav #sidenav opened mode="side">
-    <!-- Commented Out as it is not the scope of these task-->
-    <app-sidebar></app-sidebar>
-  </mat-sidenav>
+<!--MAIN PAGE-->
+<div class="container view-container">
 
-  <!--MAIN PAGE-->
-  <mat-sidenav-content>
-    <article class="container view-container">
+  <app-header></app-header>
 
-      <header>
-        <app-header></app-header>
-      </header>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</div>
 
-      <router-outlet></router-outlet>
+<!-- 
+<div class="main-container container-fluid">
 
-    </article>
-  </mat-sidenav-content>
+  <app-header id="host-nav-bar" class="nav-bar"></app-header>
 
-</mat-sidenav-container>
+  <section id="router-out">
+    <router-outlet></router-outlet>
+  </section>
+
+  <section>
+    <div class="scroll-to-top text-right">
+      <button mat-raised-button matTooltip="Go to Top" matTooltipClass="custom-tooltip" aria-label="go to Top"
+        color="primary" class="goTop-btn" (click)="scrollToTop()">
+        <img class="arrow-up" src="../../../assets/icons/arrow-up.svg" alt="go to top">
+      </button>
+    </div>
+  </section>
+</div> -->
